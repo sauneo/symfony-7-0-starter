@@ -3,7 +3,29 @@
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+when@dev:
+    parameters:
+        public_dir: '%kernel.project_dir%/public/'
+        twig_base: 'http://localhost/Symfony_starter/web/public/'
+
+when@prod:
+    parameters:
+        router.request_context.scheme: 'https'
+        asset.request_context.secure: true
+        public_dir: '%kernel.project_dir%/public_html/'
+        twig_base: 'https://some-domain.cz/'
+
 parameters:
+    timezone: '%env(APP_TIMEZONE)%'
+    project_directory: '%public_dir%'
+    avatars_absolute_directory: '%public_dir%assets/admin/media/avatars'
+    avatars_relative_directory: 'assets/admin/media/avatars/'
+    documents_absolute_directory: '%public_dir%assets/media/documents'
+    documents_relative_directory: 'assets/media/documents/'
+    images_absolute_directory: '%public_dir%assets/media/images'
+    images_relative_directory: 'assets/media/images/'
+    photogalleries_absolute_directory: '%public_dir%assets/media/photogalleries'
+    photogalleries_relative_directory: 'assets/media/photogalleries/'
 
 services:
     # default configuration for services in *this* file
@@ -22,3 +44,9 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    App\Twig\LcFirstExtension:
+        tags: ['twig.extension']
+    App\Twig\FileExistsExtension:
+        tags: ['twig.extension']
+    App\Twig\TranslationKeyExistsExtension:
+        tags: ['twig.extension']
