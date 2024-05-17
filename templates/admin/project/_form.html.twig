@@ -1,0 +1,298 @@
+<div class="form-errors">
+	{{ form_errors(form) }}
+</div>
+
+<div class="mb-4">
+    <div class="input-group input-group-lg">
+
+        <input
+            id="{{ form.aresIco.vars.id }}" 
+            name="{{ field_name(form.aresIco) }}"
+            value="{{ field_value(form.aresIco) }}"
+            placeholder="{{ field_label(form.aresIco) }}"
+            class="form-control"
+        >
+
+        <button 
+            type="button" 
+            id="{{ form.aresSend.vars.id }}" 
+            name="{{ field_name(form.aresSend) }}" 
+            value="1" 
+            class="btn btn-secondary">{{ field_label(form.aresSend) }}
+        </button>
+
+    </div>
+
+    <div id="ico-error-message" class="mt-2 error-message"></div>
+
+</div>
+
+<div class="card">
+
+    <div class="card-header align-items-center d-flex">
+		<h4 class="card-title mb-0 flex-grow-1">{{ 'fieldset.company_information'|trans([], 'project') }}</h4>
+	</div>
+
+    <div class="card-body">
+
+        <div class="row">
+
+            <div class="col-12">
+				{{ form_row(form.ciName) }}
+			</div>
+
+            <div class="col-4">
+				{{ form_row(form.ciIn) }}
+			</div>
+
+            <div class="col-4">
+				{{ form_row(form.ciTin) }}
+			</div>
+
+            <div class="col-4 d-flex align-items-center">
+                <div class="form-check form-switch form-switch-lg" dir="ltr">
+                    {{ form_widget(form.ciVatPayer, {}) }}
+                </div>
+            </div>
+
+            <div class="col-12">
+				{{ form_row(form.ciRegistered) }}
+			</div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <div class="card-header align-items-center d-flex">
+		<h4 class="card-title mb-0 flex-grow-1">{{ 'fieldset.contact_information'|trans([], 'project') }}</h4>
+	</div>
+
+    <div class="card-body">
+
+        <div class="row">
+
+            <div class="col-3">
+                {{ form_row(form.ciPhone) }}
+            </div>
+
+            <div class="col-3">
+                {{ form_row(form.ciMobile) }}
+            </div>
+
+            <div class="col-3">
+                {{ form_row(form.ciFax) }}
+            </div>
+
+            <div class="col-3">
+                {{ form_row(form.ciEmail) }}
+            </div>
+
+            <div class="col-4">
+                {{ form_row(form.ciWeb) }}
+            </div>
+
+            <div class="col-4">
+                {{ form_row(form.ciDuns) }}
+            </div>
+
+            <div class="col-4">
+                {{ form_row(form.ciDataBox) }}
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <div class="card-header align-items-center d-flex">
+		<h4 class="card-title mb-0 flex-grow-1">{{ 'fieldset.bank_information'|trans([], 'project') }}</h4>
+	</div>
+
+    <div class="card-body">
+
+        <div class="row">
+
+            <div class="col-3">
+                {{ form_row(form.ciBa) }}
+            </div>
+
+            <div class="col-3">
+                {{ form_row(form.ciBc) }}
+            </div>
+
+            <div class="col-3">
+                {{ form_row(form.ciIban) }}
+            </div>
+
+            <div class="col-3">
+                {{ form_row(form.ciSwift) }}
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <div class="card-header align-items-center d-flex">
+		<h4 class="card-title mb-0 flex-grow-1">{{ 'fieldset.billing_information'|trans([], 'project') }}</h4>
+	</div>
+
+    <div class="card-body">
+
+        <div class="row">
+
+            <div class="col-12">
+                {{ form_row(form.biName) }}
+            </div>
+
+            <div class="col-3">
+                {{ form_row(form.biStreet) }}
+            </div>
+
+            <div class="col-3">
+                {{ form_row(form.biCity) }}
+            </div>
+
+            <div class="col-3">
+                {{ form_row(form.biZipcode) }}
+            </div>
+
+            <div class="col-3">
+                {{ form_row(form.biCountry) }}
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <div class="card-header align-items-center d-flex">
+		<h4 class="card-title mb-0 flex-grow-1">{{ 'fieldset.delivery_information'|trans([], 'project') }}</h4>
+	</div>
+
+    <div class="card-body">
+
+        <div class="row">
+
+            <div class="col-12">
+                {{ form_row(form.diName) }}
+            </div>
+
+            <div class="col-3">
+                {{ form_row(form.diStreet) }}
+            </div>
+
+            <div class="col-3">
+                {{ form_row(form.diCity) }}
+            </div>
+
+            <div class="col-3">
+                {{ form_row(form.diZipcode) }}
+            </div>
+
+            <div class="col-3">
+                {{ form_row(form.diCountry) }}
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <div class="card-header align-items-center d-flex">
+		<h4 class="card-title mb-0 flex-grow-1">{{ 'fieldset.social_site'|trans([], 'project') }}</h4>
+	</div>
+
+    <div class="card-body">
+
+        <div class="row">
+
+            <div class="col-6">
+				{{ form_row(form.discord) }}
+			</div>
+
+            <div class="col-6">
+				{{ form_row(form.facebook) }}
+			</div>
+
+            <div class="col-6">
+				{{ form_row(form.instagram) }}
+			</div>
+
+            <div class="col-6">
+				{{ form_row(form.linkedin) }}
+			</div>
+
+            <div class="col-6">
+				{{ form_row(form.pinterest) }}
+			</div>
+
+            <div class="col-6">
+				{{ form_row(form.snapchat) }}
+			</div>
+
+            <div class="col-6">
+				{{ form_row(form.telegram) }}
+			</div>
+
+            <div class="col-6">
+				{{ form_row(form.tiktok) }}
+			</div>
+
+            <div class="col-6">
+				{{ form_row(form.tumblr) }}
+			</div>
+
+            <div class="col-6">
+				{{ form_row(form.whatsapp) }}
+			</div>
+
+            <div class="col-6">
+				{{ form_row(form.x) }}
+			</div>
+
+            <div class="col-6">
+				{{ form_row(form.youtube) }}
+			</div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <div class="card-header align-items-center d-flex">
+		<h4 class="card-title mb-0 flex-grow-1">{{ 'fieldset.publication'|trans([], 'project') }}</h4>
+	</div>
+
+    <div class="card-body">
+
+        <div class="row">
+
+            <div class="col-12">
+                {{ form_row(form.publication) }}
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,50 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body_content %}
+
+    <div class="card">
+
+        <div class="card-body">
+
+            <div class="table-responsive">
+
+                <table class="table table-striped table-hover table-nowrap align-middle mb-0">
+
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-center">{{ 'label.id'|trans({}, 'project')|lower }}</th>
+                            <th scope="col">{{ 'label.name'|trans({}, 'project')|lower }}</th>
+                            <th scope="col">{{ 'label.api_key'|trans({}, 'project')|lower }}</th>
+                            <th scope="col" class="text-center">{{ 'label.actions'|trans|lower }}</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for project_api in project_apis %}
+                        <tr>
+                            <td class="text-center">{{ project_api.id }}</td>
+                            <td>{{ project_api.name }}</td>
+                            <td>{{ project_api.apiKey }}</td>
+                            <td class="text-center">
+                                <a href="{{ path('app_admin_project_api_show', {'id': project_api.id}) }}" title="{{ 'action.show'|trans|lower }}"><i class="ri-eye-fill"></i></a>
+                                <a href="{{ path('app_admin_project_api_edit', {'id': project_api.id}) }}" title="{{ 'action.edit'|trans|lower }}"><i class="ri-edit-fill"></i></a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="4">{{ 'message.no_records_found'|trans }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+        
+    </div>
+
+    <a href="{{ path('app_admin_project_api_new') }}" title="{{ 'action.create_new_project_api'|trans({}, 'project') }}" class="btn btn-success">{{ 'action.create_new_project_api'|trans({}, 'project') }}</a>
+    
+{% endblock %}
