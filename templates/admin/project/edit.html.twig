@@ -27,8 +27,10 @@
 
 {% block body_javascript_document_ready %}
 
+    {{ parent() }}
+
     var module = "project";
     var moduleUrl = "{{ path('app_admin_project_new_ares') }}";
-    {{ include('admin/function/ares-js-dr.html.twig') }}
+    {{ include('admin/inc/body-javascript-document-ready/ares.html.twig') }}
 
 {% endblock %}

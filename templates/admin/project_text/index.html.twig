@@ -1,5 +1,21 @@
 {% extends 'admin/base.html.twig' %}
 
+{% block head_css %}
+
+    {{ parent() }}
+
+    {{ include('admin/inc/head-css/datatables.html.twig') }}
+
+{% endblock %}
+
+{% block head_stylesheet %}
+
+    {{ parent() }}
+
+    {{ include('admin/inc/head-stylesheet/datatables.html.twig') }}
+
+{% endblock %}
+
 {% block body_content %}
 
     <div class="card">
@@ -8,36 +24,7 @@
 
             <div class="table-responsive">
 
-                <table class="table table-striped table-hover table-nowrap align-middle mb-0">
-
-                    <thead>
-                        <tr>
-                            <th scope="col" class="text-center">{{ 'label.id'|trans({}, 'project')|lower }}</th>
-                            <th scope="col">{{ 'label.name'|trans({}, 'project')|lower }}</th>
-                            <th scope="col">{{ 'label.description'|trans({}, 'project')|lower }}</th>
-                            <th scope="col" class="text-center">{{ 'label.actions'|trans|lower }}</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                    {% for project_text in project_texts %}
-                        <tr>
-                            <td class="text-center">{{ project_text.id }}</td>
-                            <td>{{ project_text.name }}</td>
-                            <td>{{ project_text.description }}</td>
-                            <td class="text-center">
-                                <a href="{{ path('app_admin_project_text_show', {'id': project_text.id}) }}" title="{{ 'action.show'|trans|lower }}"><i class="ri-eye-fill"></i></a>
-                                <a href="{{ path('app_admin_project_text_edit', {'id': project_text.id}) }}" title="{{ 'action.edit'|trans|lower }}"><i class="ri-edit-fill"></i></a>
-                            </td>
-                        </tr>
-                    {% else %}
-                        <tr>
-                            <td colspan="4">{{ 'message.no_records_found'|trans }}</td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-
-                </table>
+                <div id="data-table">{{ 'status.loading_data'|trans }}...</div>
 
             </div>
 
@@ -47,4 +34,20 @@
 
     <a href="{{ path('app_admin_project_text_new') }}" title="{{ 'action.create_new_project_text'|trans({}, 'project') }}" class="btn btn-success">{{ 'action.create_new_project_text'|trans({}, 'project') }}</a>
     
+{% endblock %}
+
+{% block body_javascript %}
+
+    {{ parent() }}
+
+    {{ include('admin/inc/body-javascript/datatables.html.twig') }}
+
+{% endblock %}
+
+{% block body_javascript_document_ready %}
+
+    {{ parent() }}
+
+    {{ include('admin/inc/body-javascript-document-ready/datatables.html.twig') }}
+
 {% endblock %}

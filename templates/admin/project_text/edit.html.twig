@@ -24,3 +24,20 @@
     </div>
 
 {% endblock %}
+
+{% block body_javascript %}
+
+    {{ parent() }}
+    
+    {{ include('admin/inc/body-javascript/tinymce.html.twig') }}
+
+{% endblock %}
+
+{% block body_javascript_function %}
+
+    {{ parent() }}
+
+    var inputTinyMCE = 'project_text_description';
+    {{ include('admin/inc/body-javascript-function/tinymce.html.twig') }}
+
+{% endblock %}

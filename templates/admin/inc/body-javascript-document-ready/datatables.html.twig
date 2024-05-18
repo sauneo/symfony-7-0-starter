@@ -1,0 +1,27 @@
+$(function() {
+
+    $('#data-table').initDataTables({{ datatable_settings(datatable) }}, {
+
+        searching: true,
+        stateSave: true,
+        dom: '<"row"<"col-sm-6 mb-2 text-start"l><"col-sm-6 mb-2 text-end"f>>' +
+             '<"row"<"col-sm-12"t>>' +
+             '<"row"<"col-sm-6 mt-2 text-start"i><"col-sm-6 mt-2 text-end"p>>',
+        order: {
+            idx: 0,
+            dir: 'asc'
+        },
+        language: {
+            url: 'https://cdn.datatables.net/plug-ins/2.0.7/i18n/{{ lang }}.json',
+        },
+
+    }).then(function(dt) {
+
+        // dt contains the initialized instance of DataTables
+        dt.on('draw', function() {
+            //alert('Redrawing table');
+        })
+        
+    });
+
+});

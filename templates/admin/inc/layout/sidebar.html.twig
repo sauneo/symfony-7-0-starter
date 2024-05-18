@@ -3,6 +3,7 @@
 
 	<!-- LOGO -->
 	<div class="navbar-brand-box">
+
         <!-- Dark Logo-->
         <a href="/" class="logo logo-dark">
             <span class="logo-sm">
@@ -12,6 +13,7 @@
                 <img src="assets/admin/media/logos/svg/logo-sauneo.svg" alt="°SAUNEO | Vypotíme to za Vás!" height="17">
             </span>
         </a>
+
         <!-- Light Logo-->
         <a href="/" class="logo logo-light">
             <span class="logo-sm">
@@ -21,23 +23,29 @@
                 <img src="assets/admin/media/logos/svg/logo-sauneo.svg" alt="°SAUNEO | Vypotíme to za Vás!" width="150">
             </span>
         </a>
+
         <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover" id="vertical-hover">
             <i class="ri-record-circle-line"></i>
         </button>
+
     </div>
 
+    <!-- begin::Scrollbar -->
 	<div id="scrollbar">
+
 		<div class="container-fluid">
 
 			<div id="two-column-menu"></div>
+
+            <!-- begin::Navbar nav -->
 			<ul class="navbar-nav" id="navbar-nav">
 
-				<li class="menu-title"><span>Správa</span></li>
+				<li class="menu-title"><span>{{ 'menu.title.management'|trans }}</span></li>
 
                 <!-- begin::Language -->
                 <li class="nav-item">
                     <a href="#sidebarLanguage" title="{{ 'menu.languages'|trans({}, 'language') }}" class="nav-link menu-link collapsed{{ app.request.attributes.get("_route") matches '/(app_admin_language)([\\w]+)/' ? ' active' : '' }}" data-bs-toggle="collapse" role="button" aria-expanded="{{ app.request.attributes.get("_route") matches '/(app_admin_language)([\\w]+)/' ? 'true' : 'false' }}" aria-controls="sidebarLanguage">
-                        <i class="mdi mdi-identifier"></i> <span>{{ 'menu.languages'|trans({}, 'language') }}</span>
+                        <i class="mdi mdi-earth"></i> <span>{{ 'menu.languages'|trans({}, 'language') }}</span>
                     </a>
                     <div class="menu-dropdown collapse{{ app.request.attributes.get("_route") matches '/(app_admin_language)([\\w]+)/' ? ' show' : '' }}" id="sidebarLanguage">
                         <ul class="nav nav-sm flex-column">
@@ -74,12 +82,18 @@
                 <!-- end::Project -->
 
 			</ul>
+            <!-- end::Navbar nav -->
+
 		</div>
 		<!-- Sidebar -->
+
 	</div>
+    <!-- end::Scrollbar -->
 
 	<div class="sidebar-background"></div>
+
 </div>
 <!-- Left Sidebar End -->
+
 <!-- Vertical Overlay-->
 <div class="vertical-overlay"></div>

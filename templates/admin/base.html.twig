@@ -2,13 +2,13 @@
 {% set locale = 'cs_CZ' %}
 {% set BASE = twig_base %}
 
-{{ include('admin/partials/main.html.twig') }}
+{{ include('admin/inc/layout/main.html.twig') }}
 
     <head>
 
-        {{ include('admin/partials/title-meta.html.twig', {title: pageTitle}) }}
+        {{ include('admin/inc/layout/title-meta.html.twig', {title: pageTitle}) }}
 
-        {{ include('admin/partials/head-css.html.twig') }}
+        {{ include('admin/inc/layout/head-css.html.twig') }}
 
         {% block head_css %}{% endblock %}
 
@@ -22,18 +22,21 @@
 
     <body>
 
-        <!-- Begin page -->
+        <!-- begin::Layout wrapper -->
         <div id="layout-wrapper">
 
-            {{ include('admin/partials/menu.html.twig') }}
+            {{ include('admin/inc/layout/menu.html.twig') }}
 
+            <!-- begin::Main content -->
             <div class="main-content">
 
+                <!-- begin::Page content -->
                 <div class="page-content">
 
+                    <!-- begin::Container fluid -->
                     <div class="container-fluid mb-4">
 
-                        {{ include('admin/partials/page-title.html.twig', {pagetitle: page, title: pageTitle}) }}
+                        {{ include('admin/inc/layout/page-title.html.twig', {pagetitle: page, title: pageTitle}) }}
 
                         <!-- begin::Flash messages -->
                         {% for label, messages in app.flashes %}
@@ -45,33 +48,35 @@
                         {% endfor %}
                         <!-- end::Flash messages -->
 
+                        <!-- begin::Body content -->
                         {% block body_content %}
 
 
 
                         {% endblock %}
+                        <!-- end::Body content -->
                         
                     </div>
-                    <!-- container-fluid -->
+                    <!-- end::Container fluid -->
 
                 </div>
-                <!-- End Page-content -->
+                <!-- end::Page content -->
 
-                {{ include('admin/partials/footer.html.twig') }}
+                {{ include('admin/inc/layout/footer.html.twig') }}
+
             </div>
-            <!-- end main content-->
+            <!-- end::Main content-->
 
         </div>
-        <!-- END layout-wrapper -->
+        <!-- end::Layout wrapper -->
 
+        {{ include('admin/inc/layout/customizer.html.twig') }}
 
-
-        {{ include('admin/partials/customizer.html.twig') }}
-
-        {{ include('admin/partials/vendor-scripts.html.twig') }}
+        {{ include('admin/inc/layout/vendor-scripts.html.twig') }}
 
         <!-- App js -->
         <script src="assets/admin/js/app.js"></script>
+
         <!-- password-addon init -->
         <script src="assets/admin/js/pages/password-addon.init.js"></script>
         
@@ -81,12 +86,12 @@
 
         {% endblock %}
 
-        <!--begin::Javascript-->
-		{% block wrapper_body_javascript_functions %}
+        <!-- begin::Javascript function -->
+		{% block wrapper_body_javascript_function %}
 
 			<script type="text/javascript">
 
-				{% block body_javascript_functions %}
+				{% block body_javascript_function %}
 
 
 
@@ -95,9 +100,9 @@
             </script>
 
 		{% endblock %}
-		<!--end::Javascript-->
+		<!-- end::Javascript function -->
 
-		<!--start::Document ready-->
+		<!-- begin::Document ready -->
 		{% block wrapper_body_javascript_document_ready %}
 
         <script type="text/javascript">
@@ -115,7 +120,7 @@
 			</script>
 
 		{% endblock %}
-		<!--end::Document ready-->
+		<!-- end::Document ready -->
 
     </body>
 
