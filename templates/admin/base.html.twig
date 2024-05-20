@@ -39,13 +39,14 @@
                         {{ include('admin/inc/layout/page-title.html.twig', {pagetitle: page, title: pageTitle}) }}
 
                         <!-- begin::Flash messages -->
-                        {% for label, messages in app.flashes %}
+                        {% for type, messages in app.flashes %}
                             {% for message in messages %}
-                                <div class="flash-{{ label }}">
+                                <div class="alert {{ alert_type(type) }}" role="alert">
                                     {{ message }}
                                 </div>
                             {% endfor %}
                         {% endfor %}
+
                         <!-- end::Flash messages -->
 
                         <!-- begin::Body content -->

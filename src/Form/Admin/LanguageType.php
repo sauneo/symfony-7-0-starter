@@ -23,30 +23,30 @@ class LanguageType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => mb_strtolower($this->translator->trans('label.name'), 'UTF-8'),
+                'label' => mb_strtolower($this->translator->trans('label.name', [], 'language'), 'UTF-8'),
                 'attr' => [
-                    'placeholder' => mb_strtolower($this->translator->trans('placeholder.name'), 'UTF-8'),
+                    'placeholder' => mb_strtolower($this->translator->trans('placeholder.name', [], 'language'), 'UTF-8'),
                 ],
                 'required' => true,
             ])
             ->add('urlAlias', TextType::class, [
-                'label' => mb_strtolower($this->translator->trans('label.url_alias'), 'UTF-8'),
+                'label' => mb_strtolower($this->translator->trans('label.url_alias', [], 'language'), 'UTF-8'),
                 'attr' => [
-                    'placeholder' => mb_strtolower($this->translator->trans('placeholder.url_alias'), 'UTF-8'),
+                    'placeholder' => mb_strtolower($this->translator->trans('placeholder.url_alias', [], 'language'), 'UTF-8'),
                 ],
                 'required' => true,
             ])
             ->add('locale', TextType::class, [
-                'label' => mb_strtolower($this->translator->trans('label.locale'), 'UTF-8'),
+                'label' => mb_strtolower($this->translator->trans('label.locale', [], 'language'), 'UTF-8'),
                 'attr' => [
-                    'placeholder' => mb_strtolower($this->translator->trans('placeholder.locale'), 'UTF-8'),
+                    'placeholder' => mb_strtolower($this->translator->trans('placeholder.locale', [], 'language'), 'UTF-8'),
                 ],
                 'required' => true,
             ])
             ->add('translate', TextType::class, [
-                'label' => mb_strtolower($this->translator->trans('label.translate'), 'UTF-8'),
+                'label' => mb_strtolower($this->translator->trans('label.translate', [], 'language'), 'UTF-8'),
                 'attr' => [
-                    'placeholder' => mb_strtolower($this->translator->trans('placeholder.translate'), 'UTF-8'),
+                    'placeholder' => mb_strtolower($this->translator->trans('placeholder.translate', [], 'language'), 'UTF-8'),
                 ],
                 'help' => 'odkaz na překladový klíč',
                 'required' => true,
