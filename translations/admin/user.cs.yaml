@@ -1,0 +1,21 @@
+action:
+  create_new_user: Vytvořit nového uživatele
+  edit_user: Upravit uživatele
+
+breadcrumbs:
+  overview_of_users: Přehled uživatelů
+  users: Uživatelé
+  user_detail: Detail uživatele
+  edit_user: Úprava uživatele
+  new_user: Nový uživatel
+
+fieldset:
+  password_and_security: Heslo a zabezpečení
+  publication: Publikace
+  roles: Uživatelské role
+
+label:
+  id: Id
+  email: E-mail
+  password: Heslo
+  roles: Uživatelská role

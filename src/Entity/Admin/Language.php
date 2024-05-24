@@ -34,6 +34,9 @@ class Language
     #[ORM\OneToMany(mappedBy: 'language', targetEntity: ProjectText::class)]
     private Collection $languageProjectTexts;
 
+    #[ORM\OneToOne(mappedBy: 'language', cascade: ['persist', 'remove'])]
+    private ?UserSettings $languageUserSettings = null;
+
     public function __construct()
     {
         $this->languageProjectTexts = new ArrayCollection();
@@ -130,6 +133,23 @@ class Language
                 $languageProjectText->setLanguage(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getLanguageUserSettings(): ?UserSettings
+    {
+        return $this->languageUserSettings;
+    }
+
+    public function setLanguageUserSettings(UserSettings $languageUserSettings): static
+    {
+        // set the owning side of the relation if necessary
+        if ($languageUserSettings->getLanguage() !== $this) {
+            $languageUserSettings->setLanguage($this);
+        }
+
+        $this->languageUserSettings = $languageUserSettings;
 
         return $this;
     }

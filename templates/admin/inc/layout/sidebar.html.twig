@@ -39,6 +39,14 @@
 
             <!-- begin::Navbar nav -->
 			<ul class="navbar-nav" id="navbar-nav">
+                
+                <!-- begin::Dashboard -->
+                <li class="nav-item">
+                    <a href="{{ path('app_admin_dashboard') }}" title="{{ 'menu.dashboard'|trans }}" class="nav-link menu-link{{ app.request.attributes.get("_route") matches '/(app_admin_dashboard)/' ? ' active' : '' }}">
+                        <i class="mdi mdi-monitor-dashboard"></i> <span data-key="t-dashboard">{{ 'menu.dashboard'|trans }}</span>
+                    </a>
+                </li>
+                <!-- end::Dashboard Menu -->
 
 				<li class="menu-title"><span>{{ 'menu.title.management'|trans }}</span></li>
 
